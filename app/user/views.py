@@ -1,3 +1,4 @@
+
 """
 Views for the user API.
 """
@@ -9,7 +10,6 @@ from user.serializers import (
     UserSerializer,
     AuthTokenSerializer,
 )
-
 
 class CreateUserView(generics.CreateAPIView):
     """Create a new user in the system."""
@@ -29,3 +29,8 @@ class ManageUserView(generics.RetrieveUpdateAPIView):
     def get_object(self):
         """Retrieve and return the authenticated user."""
         return self.request.user
+
+
+class UpdateUserView(generics.CreateAPIView):
+    """This view updates views"""
+    serializer_class = UserSerializer
